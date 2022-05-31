@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_home"
+    tools:context=".HomeActivity">
+
+    <ImageView
+        android:id="@+id/shape"
+        android:layout_width="match_parent"
+        android:layout_height="171dp"
+        android:src="@drawable/shapee"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/pic"
+        android:layout_width="93dp"
+        android:layout_height="92dp"
+        android:src="@drawable/man_1"
+        android:layout_marginRight="24dp"
+        android:layout_marginTop="25dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="55dp"
+        android:layout_marginRight="195dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="Hi, "
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:layout_marginLeft="40dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/textUsername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="55dp"
+        android:layout_marginRight="195dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="Username"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/text1"
+        tools:ignore="HardcodedText" />
+
+    <LinearLayout
+        android:id="@+id/linear1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingRight="21dp"
+        android:paddingLeft="22dp"
+        app:layout_constraintTop_toBottomOf="@id/shape"
+        android:layout_marginTop="35dp"
+        tools:ignore="MissingConstraints,RtlHardcoded">
+
+        <ImageView
+            android:id="@+id/profile"
+            android:layout_width="85dp"
+            android:layout_height="85dp"
+            android:src="@drawable/user" />
+
+        <ImageView
+            android:id="@+id/listbuku"
+            android:layout_width="85dp"
+            android:layout_height="85dp"
+            android:src="@drawable/agenda"
+            android:layout_marginLeft="47dp" />
+
+        <ImageView
+            android:id="@+id/history"
+            android:layout_width="85dp"
+            android:layout_height="85dp"
+            android:src="@drawable/deadline"
+            android:layout_marginLeft="47dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingRight="32dp"
+        android:paddingLeft="32dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/linear1"
+        android:layout_marginTop="3dp"
+        tools:ignore="MissingConstraints,RtlHardcoded">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat"
+            android:text="Profile"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat"
+            android:text="List Buku"
+            android:layout_marginLeft="65dp"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat"
+            android:text="History"
+            android:layout_marginLeft="55dp"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingRight="21dp"
+        android:paddingLeft="22dp"
+        app:layout_constraintTop_toBottomOf="@id/linear2"
+        android:layout_marginTop="35dp"
+        tools:ignore="MissingConstraints,RtlHardcoded">
+
+        <ImageView
+            android:id="@+id/kontak"
+            android:layout_width="85dp"
+            android:layout_height="85dp"
+            android:src="@drawable/teamwork" />
+
+        <ImageView
+            android:id="@+id/tentang"
+            android:layout_width="85dp"
+            android:layout_height="85dp"
+            android:src="@drawable/question"
+            android:layout_marginLeft="47dp" />
+
+        <ImageView
+            android:id="@+id/logout"
+            android:layout_width="85dp"
+            android:layout_height="85dp"
+            android:src="@drawable/enter"
+            android:layout_marginLeft="47dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingRight="32dp"
+        android:paddingLeft="32dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/linear3"
+        android:layout_marginTop="3dp"
+        tools:ignore="MissingConstraints,RtlHardcoded">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat"
+            android:text="Kontak"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat"
+            android:text="Tentang"
+            android:layout_marginLeft="65dp"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat"
+            android:text="Logout"
+            android:layout_marginLeft="55dp"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/iklan"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/shopee"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/linear4" />
+
+    <TextView
+        android:id="@+id/textbawah1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome to Library of Mordor. Content of this website may include technical inaccuracies or typographical errors. We make no warranty to any materials in this website."
+        android:fontFamily="@font/montserrat"
+        android:textSize="10sp"
+        android:paddingLeft="13dp"
+        android:paddingRight="13dp"
+        android:layout_marginTop="17dp"
+        android:gravity="center"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iklan"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textbawah2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="©Copyright Kelompok PAM 2022"
+        android:fontFamily="@font/montserrat"
+        android:textSize="10sp"
+        android:paddingLeft="13dp"
+        android:paddingRight="13dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textbawah1"
+        tools:ignore="MissingConstraints" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gradient"
+    tools:context=".RegisterActivity">
+
+    <TextView
+        android:id="@+id/text_form"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="95dp"
+        android:fontFamily="@font/montserrat"
+        android:text="FORM REGISTER"
+        android:textAlignment="center"
+        android:textColor="#FEF9FF"
+        android:textSize="24sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
+
+    <LinearLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/text_form"
+        android:layout_marginTop="67dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp" >
+
+        <EditText
+            android:id="@+id/etUsername"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Username"
+            android:background="@drawable/bg_login"
+            android:textColorHint="#FFFFFF"
+            android:paddingStart="26.11sp"
+            android:textSize="16sp"
+            android:layout_marginTop="20dp"
+            tools:ignore="Autofill,HardcodedText,RtlSymmetry" />
+
+        <EditText
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Email Address"
+            android:inputType="textEmailAddress"
+            android:background="@drawable/bg_login"
+            android:textColorHint="#FFFFFF"
+            android:paddingStart="26.11sp"
+            android:textSize="16sp"
+            android:layout_marginTop="20dp"
+            tools:ignore="Autofill,HardcodedText,RtlSymmetry" />
+
+        <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:background="@drawable/bg_login"
+            android:textColorHint="#FFFFFF"
+            android:paddingStart="26.11sp"
+            android:textSize="16sp"
+            android:layout_marginTop="20dp"
+            tools:ignore="Autofill,HardcodedText,RtlSymmetry" />
+
+        <Button
+            android:id="@+id/btnRegister"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="REGISTER"
+            android:textAllCaps="true"
+            android:textSize="16sp"
+            android:fontFamily="@font/montserrat_bold"
+            android:textColor="#27777C"
+            android:layout_marginTop="33dp"
+            android:background="@drawable/bg_button"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Cancel"
+            android:textAllCaps="true"
+            android:textSize="16sp"
+            android:fontFamily="@font/montserrat_bold"
+            android:textColor="#27777C"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bg_button"
+            tools:ignore="HardcodedText" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

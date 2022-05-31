@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gradient"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/books_1"
+        android:layout_width="91dp"
+        android:layout_height="86dp"
+        android:layout_marginTop="114dp"
+        android:src="@drawable/books_1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/text_bookstore"
+        android:layout_width="300dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="9dp"
+        android:fontFamily="@font/montserrat"
+        android:text="Library of Mordor"
+        android:textAlignment="center"
+        android:textColor="#FEF9FF"
+        android:textSize="24sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/books_1"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/text_loginto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="9dp"
+        android:fontFamily="@font/montserrat"
+        android:text="Log into your account to access the app"
+        android:textAlignment="center"
+        android:textColor="#FEF9FF"
+        android:textSize="12sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_bookstore"
+        tools:ignore="HardcodedText" />
+
+    <LinearLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/text_loginto"
+        android:layout_marginTop="67dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Login"
+            android:textSize="18sp"
+            android:fontFamily="@font/montserrat_bold"
+            android:textColor="#FFFFFF"
+            tools:ignore="HardcodedText" />
+
+        <EditText
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Email Address"
+            android:inputType="textEmailAddress"
+            android:background="@drawable/bg_login"
+            android:textColorHint="#FFFFFF"
+            android:paddingStart="26.11sp"
+            android:textSize="16sp"
+            android:layout_marginTop="20dp"
+            tools:ignore="Autofill,HardcodedText,RtlSymmetry" />
+
+        <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:background="@drawable/bg_login"
+            android:textColorHint="#FFFFFF"
+            android:paddingStart="26.11sp"
+            android:textSize="16sp"
+            android:layout_marginTop="20dp"
+            tools:ignore="Autofill,HardcodedText,RtlSymmetry" />
+
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="LOGIN"
+            android:textAllCaps="true"
+            android:textSize="16sp"
+            android:fontFamily="@font/montserrat_bold"
+            android:textColor="#27777C"
+            android:layout_marginTop="33dp"
+            android:background="@drawable/bg_button"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/text_forgotpass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="33dp"
+            android:text="Forgot Password ?"
+            android:textColor="#FFFFFF"
+            android:fontFamily="@font/montserrat"
+            android:textSize="12sp"
+            android:textAlignment="center"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/text_signup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="9dp"
+            android:text="Doesn't have account ? Sign up here"
+            android:textColor="#FFFFFF"
+            android:fontFamily="@font/montserrat"
+            android:textSize="12sp"
+            android:textAlignment="center"
+            tools:ignore="HardcodedText" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

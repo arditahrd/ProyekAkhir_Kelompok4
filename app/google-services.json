@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "248952875418",
+    "project_id": "proyekakhirpam",
+    "storage_bucket": "proyekakhirpam.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:248952875418:android:f08372c47363ab808ef223",
+        "android_client_info": {
+          "package_name": "com.example.proyekakhir_kelompok4"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "248952875418-rppjp39aq29hr5o34s16fis8lfc1okv5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD02gInmy6i7IfXOyQZDj0bcEQXGf61bFg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "248952875418-rppjp39aq29hr5o34s16fis8lfc1okv5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
