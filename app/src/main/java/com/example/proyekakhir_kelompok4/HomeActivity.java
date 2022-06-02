@@ -20,7 +20,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
-    private ImageView imgLogout;
+    private ImageView imgLogout, imgProfile;
     private FirebaseAuth mAuth;
     private FirebaseUser user;
     private DatabaseReference reference;
@@ -32,8 +32,16 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         imgLogout = (ImageView) findViewById(R.id.logout);
+        imgProfile = (ImageView) findViewById(R.id.profile);
 
         imgLogout.setOnClickListener(this);
+        imgProfile.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomeActivity.this, ProfileActivity.class);
+                startActivity(intent);
+            }
+        });
 
         user = FirebaseAuth.getInstance().getCurrentUser();
         reference = FirebaseDatabase.getInstance().getReference("dataRegister");

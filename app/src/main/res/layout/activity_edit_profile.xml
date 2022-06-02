@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:fontFamily="@font/montserrat_bold"
-        android:text="PROFILE"
+        android:text="EDIT PROFILE"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="24sp"
@@ -24,7 +24,7 @@
 
     <ImageView
         android:layout_width="380dp"
-        android:layout_height="370dp"
+        android:layout_height="450dp"
         android:src="@drawable/bg_profile"
         android:layout_marginTop="10dp"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -54,12 +54,11 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 
-    <TextView
+    <EditText
         android:id="@+id/nama"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Username"
-        android:textAlignment="center"
+        android:hint="Username"
         android:textColor="@color/black"
         android:textSize="16sp"
         android:fontFamily="@font/montserrat_bold"
@@ -68,43 +67,37 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 
-    <TextView
+    <EditText
         android:id="@+id/nim"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="NIM"
-        android:textAlignment="center"
+        android:hint="NIM"
         android:textSize="16sp"
         android:fontFamily="@font/montserrat"
-        android:layout_marginTop="10dp"
         app:layout_constraintTop_toBottomOf="@+id/nama"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 
-    <TextView
+    <EditText
         android:id="@+id/prodi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Prodi"
-        android:textAlignment="center"
+        android:hint="Prodi"
         android:textColor="@color/black"
         android:textSize="16sp"
         android:fontFamily="@font/montserrat"
-        android:layout_marginTop="10dp"
         app:layout_constraintTop_toBottomOf="@+id/nim"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 
-    <TextView
+    <EditText
         android:id="@+id/fakultas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Fakultas"
-        android:textAlignment="center"
+        android:hint="Fakultas"
         android:textColor="@color/black"
         android:textSize="16sp"
         android:fontFamily="@font/montserrat"
-        android:layout_marginTop="10dp"
         app:layout_constraintTop_toBottomOf="@+id/prodi"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
@@ -118,22 +111,23 @@
         app:layout_constraintRight_toRightOf="parent" >
 
         <Button
-            android:id="@+id/editProfile"
+            android:id="@+id/saveEditProfile"
             android:layout_width="78dp"
             android:layout_height="30dp"
-            android:text="EDIT"
-            android:background="@drawable/btn_edit"
+            android:text="SAVE"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/btn_save"
             android:fontFamily="@font/montserrat_bold" />
 
         <Button
             android:id="@+id/cancel"
             android:layout_width="78dp"
             android:layout_height="30dp"
-            android:text="CANCEL"
-            android:layout_marginLeft="42dp"
-            android:background="@drawable/btn_save"
+            android:layout_marginLeft="40dp"
+            android:text="Cancel"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/btn_edit"
             android:fontFamily="@font/montserrat_bold" />
-
 
     </LinearLayout>
 

@@ -10,4 +10,5 @@ public class DataRegister {
     public DataRegister(String username) {
         this.username = username;
     }
+
 }
