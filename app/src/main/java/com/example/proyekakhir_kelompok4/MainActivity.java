@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private EditText etPass;
     private Button btnMasuk;
     private TextView tvSignUp;
+    private TextView forgotPassword;
     private FirebaseAuth mAuth;
 
     @Override
@@ -36,10 +37,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         etPass = (EditText) findViewById(R.id.etPassword);
         btnMasuk = (Button) findViewById(R.id.btnLogin);
         tvSignUp = (TextView) findViewById(R.id.text_signup);
+        forgotPassword = (TextView) findViewById(R.id.text_forgotpass);
 
         mAuth = FirebaseAuth.getInstance();
         btnMasuk.setOnClickListener(this);
         tvSignUp.setOnClickListener(this);
+        forgotPassword.setOnClickListener(this);
     }
 
     @Override
@@ -59,6 +62,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.text_signup:
                 Intent intent = new Intent(MainActivity.this, RegisterActivity.class);
                 startActivity(intent);
+                break;
+            case R.id.text_forgotpass:
+                Intent intentForgotPass = new Intent(MainActivity.this, ForgotPasswordActivity.class);
+                startActivity(intentForgotPass);
                 break;
         }
     }
