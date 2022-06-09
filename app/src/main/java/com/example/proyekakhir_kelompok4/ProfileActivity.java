@@ -38,14 +38,10 @@ public class ProfileActivity extends AppCompatActivity {
 
     private DatabaseReference reference;
     private FirebaseUser user;
-    private FirebaseStorage storage;
-    private StorageReference storageReference;
 
     private String userID;
-    public Uri imageUri;
 
     private Button editProfile, cancel;
-    private ImageView profilePic;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -58,17 +54,6 @@ public class ProfileActivity extends AppCompatActivity {
 
         editProfile = findViewById(R.id.editProfile);
         cancel = findViewById(R.id.cancel);
-        profilePic = findViewById(R.id.profilepic);
-
-        storage = FirebaseStorage.getInstance();
-        storageReference = storage.getReference();
-
-        profilePic.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                choosePicture();
-            }
-        });
 
         final TextView tvUsername = (TextView) findViewById(R.id.nama);
         final TextView tvNim = (TextView) findViewById(R.id.nim);
@@ -119,56 +104,5 @@ public class ProfileActivity extends AppCompatActivity {
                 finish();
             }
         });
-    }
-
-    private void choosePicture() {
-        Intent intent = new Intent();
-        intent.setType("image/*");
-        intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(intent, 1);
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode==1 && resultCode==RESULT_OK && data!=null && data.getData()!=null){
-            imageUri = data.getData();
-            profilePic.setImageURI(imageUri);
-            uploadPicture();
-        }
-    }
-
-    private void uploadPicture() {
-        final ProgressDialog pd = new ProgressDialog(this);
-        pd.setTitle("Uploading Image ...");
-        pd.show();
-
-        final String randomKey = UUID.randomUUID().toString();
-        // Create a reference to "mountains.jpg"
-        StorageReference mountainsRef = storageReference.child("images/" + randomKey);
-        mountainsRef.putFile(imageUri)
-                .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                    @Override
-                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                        pd.dismiss();
-                        Toast.makeText(getApplicationContext(), "Image Uploaded",
-                                Toast.LENGTH_LONG).show();
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        pd.dismiss();
-                        Toast.makeText(getApplicationContext(), "Failed to Upload",
-                                Toast.LENGTH_LONG).show();
-                    }
-                })
-                .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
-                    @Override
-                    public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
-                        double proggressPercent = (100.00 * snapshot.getBytesTransferred() / snapshot.getTotalByteCount());
-                        pd.setMessage("Uploading: " + (int) proggressPercent + "%");
-                    }
-                });
     }
 }
