@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        etEmail =(EditText) findViewById(R.id.etEmail);
+        etEmail = (EditText) findViewById(R.id.etEmail);
         etPass = (EditText) findViewById(R.id.etPassword);
         btnMasuk = (Button) findViewById(R.id.btnLogin);
         tvSignUp = (TextView) findViewById(R.id.text_signup);

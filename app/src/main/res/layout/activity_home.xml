@@ -17,7 +17,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         tools:ignore="ContentDescription" />
 
-    <ImageView
+    q<ImageView
         android:id="@+id/pic"
         android:layout_width="93dp"
         android:layout_height="92dp"
