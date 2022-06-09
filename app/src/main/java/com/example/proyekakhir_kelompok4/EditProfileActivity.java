@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -30,6 +31,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Picasso;
 
 import java.util.UUID;
 
@@ -46,6 +48,7 @@ public class EditProfileActivity extends AppCompatActivity {
 
     private Button save, cancel;
     private EditText nama, nim, prodi, fakultas;
+    private TextView imgDownloadedUrl;
     private ImageView profilePic;
 
     @Override
@@ -69,6 +72,7 @@ public class EditProfileActivity extends AppCompatActivity {
         nim = (EditText) findViewById(R.id.nim);
         prodi = (EditText) findViewById(R.id.prodi);
         fakultas = (EditText) findViewById(R.id.fakultas);
+        imgDownloadedUrl = (TextView) findViewById(R.id.imgDownloadedUrl);
 
         profilePic.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,7 +84,11 @@ public class EditProfileActivity extends AppCompatActivity {
         reference.child(userID).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
+                String getprofilepicture = task.getResult().child("image").getValue().toString();
                 if (task.isSuccessful()){
+                    if (task.getResult().child("image").getValue() != null){
+                        Picasso.get().load(getprofilepicture).resize(90,90).centerCrop().into(profilePic);
+                    }
                     if (task.getResult().child("username").getValue() != null){
                         nama.setText(String.valueOf(task.getResult().child("username").getValue()));
                     }else{
@@ -100,6 +108,10 @@ public class EditProfileActivity extends AppCompatActivity {
                         fakultas.setText(String.valueOf(task.getResult().child("fakultas").getValue()));
                     }else{
                         fakultas.setText("");
+                    }if (task.getResult().child("image").getValue() != null){
+                        imgDownloadedUrl.setText(String.valueOf(task.getResult().child("image").getValue()));
+                    }else{
+                        imgDownloadedUrl.setText("");
                     }
                 }else {
                     Log.e("Firebase", "Error getting data", task.getException());
@@ -123,6 +135,7 @@ public class EditProfileActivity extends AppCompatActivity {
     }
 
     private void editprofile(){
+        String Image = imgDownloadedUrl.getText().toString();
         String Username = nama.getText().toString();
         String Nim = nim.getText().toString();
         String Prodi = prodi.getText().toString();
@@ -153,7 +166,7 @@ public class EditProfileActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
                 if (task.isSuccessful()){
-                    DataStudent dataStudent = new DataStudent(Username, Nim, Prodi, Fakultas);
+                    DataStudent dataStudent = new DataStudent(Image, Username, Nim, Prodi, Fakultas);
                     FirebaseDatabase.getInstance().getReference("dataRegister")
                             .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                             .setValue(dataStudent)
@@ -183,7 +196,7 @@ public class EditProfileActivity extends AppCompatActivity {
 
     public void updateUI(FirebaseUser user) {
         if (user != null) {
-            Intent intent = new Intent(EditProfileActivity.this, HomeActivity.class);
+            Intent intent = new Intent(EditProfileActivity.this, ProfileActivity.class);
             startActivity(intent);
         } else {
             Toast.makeText(EditProfileActivity.this,"Register First",
@@ -208,7 +221,7 @@ public class EditProfileActivity extends AppCompatActivity {
         }
     }
 
-    private void uploadPicture() {
+    public void uploadPicture() {
         final ProgressDialog pd = new ProgressDialog(this);
         pd.setTitle("Uploading Image ...");
         pd.show();
@@ -222,7 +235,23 @@ public class EditProfileActivity extends AppCompatActivity {
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                         pd.dismiss();
                         Toast.makeText(getApplicationContext(), "Image Uploaded",
-                                Toast.LENGTH_LONG).show();
+                                Toast.LENGTH_SHORT).show();
+
+                        mountainsRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                            @Override
+                            public void onSuccess(Uri uri) {
+                                String linkProfileImg = uri.toString();
+                                reference.child(userID).child("image").setValue(linkProfileImg)
+                                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<Void> task) {
+                                                Toast.makeText(getApplicationContext(), "Image Saved in Database"
+                                                        ,Toast.LENGTH_LONG).show();
+                                                updateUI(user);
+                                            }
+                                        });
+                            }
+                        });
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {

@@ -31,6 +31,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Picasso;
 
 import java.util.UUID;
 
@@ -42,6 +43,7 @@ public class ProfileActivity extends AppCompatActivity {
     private String userID;
 
     private Button editProfile, cancel;
+    private ImageView profilePic;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -54,6 +56,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         editProfile = findViewById(R.id.editProfile);
         cancel = findViewById(R.id.cancel);
+        profilePic = findViewById(R.id.profilepic);
 
         final TextView tvUsername = (TextView) findViewById(R.id.nama);
         final TextView tvNim = (TextView) findViewById(R.id.nim);
@@ -63,7 +66,11 @@ public class ProfileActivity extends AppCompatActivity {
         reference.child(userID).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
+                String getprofilepicture = task.getResult().child("image").getValue().toString();
                 if (task.isSuccessful()){
+                    if (task.getResult().child("image").getValue() != null){
+                        Picasso.get().load(getprofilepicture).resize(90,90).centerCrop().into(profilePic);
+                    }
                     if (task.getResult().child("username").getValue() != null){
                         tvUsername.setText(String.valueOf(task.getResult().child("username").getValue()));
                     }else{
