@@ -58,6 +58,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private void registerUser() {
+        String image = "https://firebasestorage.googleapis.com/v0/b/proyekakhirpam.appspot.com/o/images%2Fdefault_ava.png?alt=media&token=85e8b2e6-39ba-4e5c-af2e-dc944ea2ed38";
         String username = etUser.getText().toString().trim();
         String email = etEmail.getText().toString().trim();
         String password = etPass.getText().toString().trim();
@@ -94,7 +95,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            DataRegister dataRegister = new DataRegister(username);
+                            DataRegister dataRegister = new DataRegister(username, image);
                             FirebaseDatabase.getInstance().getReference("dataRegister")
                                     .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                     .setValue(dataRegister).addOnCompleteListener(new OnCompleteListener<Void>() {
