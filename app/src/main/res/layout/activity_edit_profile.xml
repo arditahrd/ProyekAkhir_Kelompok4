@@ -139,7 +139,7 @@
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="16sp"
-        android:visibility="visible"
+        android:visibility="invisible"
         android:fontFamily="@font/montserrat"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
